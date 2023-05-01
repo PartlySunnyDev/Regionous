@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group = 'me.partlysunny.bossy'
+group = 'me.partlysunny.regionous'
 version = '1.0-RELEASE'
 
 repositories {
