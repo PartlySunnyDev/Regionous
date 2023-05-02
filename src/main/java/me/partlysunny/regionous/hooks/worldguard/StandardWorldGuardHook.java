@@ -1,4 +1,4 @@
-package me.partlysunny.regionous.hooks;
+package me.partlysunny.regionous.hooks.worldguard;
 
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldguard.WorldGuard;

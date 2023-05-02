@@ -1,9 +1,9 @@
 package me.partlysunny.regionous;
 
 import me.partlysunny.regionous.handler.RegionManager;
-import me.partlysunny.regionous.hooks.NoWorldGuard;
-import me.partlysunny.regionous.hooks.StandardWorldGuardHook;
-import me.partlysunny.regionous.hooks.WorldGuardHook;
+import me.partlysunny.regionous.hooks.worldguard.NoWorldGuard;
+import me.partlysunny.regionous.hooks.worldguard.StandardWorldGuardHook;
+import me.partlysunny.regionous.hooks.worldguard.WorldGuardHook;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Regionous {
