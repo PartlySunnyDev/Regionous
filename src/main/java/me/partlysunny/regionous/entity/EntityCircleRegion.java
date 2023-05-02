@@ -8,8 +8,8 @@ public class EntityCircleRegion extends CircleRegion {
 
     private final Entity tracking;
 
-    public EntityCircleRegion(float radius, Entity tracking) {
-        super(, radius);
+    public EntityCircleRegion(String identifier, float radius, Entity tracking) {
+        super(identifier, radius);
         this.tracking = tracking;
     }
 
