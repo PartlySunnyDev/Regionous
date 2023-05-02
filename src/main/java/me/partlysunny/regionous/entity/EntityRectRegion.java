@@ -4,7 +4,7 @@ import me.partlysunny.regionous.api.RectRegion;
 import me.partlysunny.regionous.util.Vector2;
 import org.bukkit.entity.Entity;
 
-public class EntityRectRegion extends RectRegion {
+public class EntityRectRegion extends RectRegion implements EntityBinder {
 
     private final Entity tracking;
 
@@ -16,5 +16,10 @@ public class EntityRectRegion extends RectRegion {
     @Override
     public Vector2 getLocation() {
         return Vector2.fromLocationXZ(tracking.getLocation());
+    }
+
+    @Override
+    public Entity getEntity() {
+        return tracking;
     }
 }

@@ -4,7 +4,7 @@ import me.partlysunny.regionous.api.SphereRegion;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
-public class EntitySphereRegion extends SphereRegion {
+public class EntitySphereRegion extends SphereRegion implements EntityBinder {
 
     private final Entity tracking;
 
@@ -16,5 +16,10 @@ public class EntitySphereRegion extends SphereRegion {
     @Override
     public Location getLocation() {
         return tracking.getLocation();
+    }
+
+    @Override
+    public Entity getEntity() {
+        return tracking;
     }
 }
