@@ -11,7 +11,7 @@ public class StaticRadialRectRegion extends RadialRectRegion {
         super(identifier, radii);
         this.location = location;
     }
-    
+
     @Override
     public Vector2 getLocation() {
         return location;

@@ -12,20 +12,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Regionous {
 
     private static Regionous instance;
-
-    public static Regionous getInstance() {
-        return instance;
-    }
-
-    public static void init(JavaPlugin plugin) {
-        instance = new Regionous(plugin);
-    }
-
     private final JavaPlugin plugin;
     private final RegionManager regionManager;
     private final WorldGuardHook worldGuardHook;
     private final WorldEditHook worldEditHook;
-
     public Regionous(JavaPlugin plugin) {
         this.plugin = plugin;
         this.regionManager = new RegionManager(plugin);
@@ -39,6 +29,14 @@ public class Regionous {
         } else {
             this.worldEditHook = new NoWorldEdit();
         }
+    }
+
+    public static Regionous getInstance() {
+        return instance;
+    }
+
+    public static void init(JavaPlugin plugin) {
+        instance = new Regionous(plugin);
     }
 
     public JavaPlugin getPlugin() {

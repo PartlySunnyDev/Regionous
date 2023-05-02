@@ -12,6 +12,10 @@ public class Vector2 {
         this.b = b;
     }
 
+    public static Vector2 fromLocationXZ(Location location) {
+        return new Vector2((float) location.getX(), (float) location.getZ());
+    }
+
     public float distanceSquared(Vector2 other) {
         return (float) (Math.pow(other.a - a, 2) + Math.pow(other.b - b, 2));
     }
@@ -24,12 +28,12 @@ public class Vector2 {
         return a;
     }
 
-    public float getB() {
-        return b;
-    }
-
     public void setA(float a) {
         this.a = a;
+    }
+
+    public float getB() {
+        return b;
     }
 
     public void setB(float b) {
@@ -63,10 +67,6 @@ public class Vector2 {
 
     public float length() {
         return (float) Math.sqrt(lengthSquared());
-    }
-
-    public static Vector2 fromLocationXZ(Location location) {
-        return new Vector2((float) location.getX(), (float) location.getZ());
     }
 
 }

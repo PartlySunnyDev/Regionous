@@ -3,7 +3,6 @@ package me.partlysunny.regionous.hooks.worldguard;
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import me.partlysunny.regionous.api.AbstractXYZ;
-import me.partlysunny.regionous.api.XYZRegion;
 import org.bukkit.Location;
 
 public class WorldGuardRegion extends AbstractXYZ {
