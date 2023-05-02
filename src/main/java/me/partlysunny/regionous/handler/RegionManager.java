@@ -9,12 +9,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class RegionManager implements Listener {
 
     private final List<Region> regions = new ArrayList<>();
+    private final Map<UUID, Map<Region, Boolean>> lastKnownStates = new HashMap<>();
 
     public RegionManager(JavaPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
@@ -22,9 +22,21 @@ public class RegionManager implements Listener {
 
     @EventHandler
     public void playerMoveEvent(PlayerMoveEvent e) {
-        if (e.hasChangedPosition()) {
-            regions.stream().filter(region -> region.isLocationInside(e.getTo()) && !region.isLocationInside(e.getFrom())).forEach(region -> Bukkit.getServer().getPluginManager().callEvent(new RegionEnteredEvent(e.getPlayer(), region)));
-            regions.stream().filter(region -> !region.isLocationInside(e.getTo()) && region.isLocationInside(e.getFrom())).forEach(region -> Bukkit.getServer().getPluginManager().callEvent(new RegionExitedEvent(e.getPlayer(), region)));
+        if (!e.getFrom().equals(e.getTo())) {
+            // TODO Technically there is a bug here, say if the player is afk and the entity containing the region moves in range, the event will not be called
+            UUID uuid = e.getPlayer().getUniqueId();
+            if (!lastKnownStates.containsKey(uuid)) {
+                lastKnownStates.put(uuid, new HashMap<>());
+            }
+            Map<Region, Boolean> playerLastState = lastKnownStates.get(uuid);
+            regions.stream().filter(region -> region.isLocationInside(e.getTo()) && !playerLastState.get(region)).forEach(region -> {
+                Bukkit.getServer().getPluginManager().callEvent(new RegionEnteredEvent(e.getPlayer(), region));
+                playerLastState.put(region, true);
+            });
+            regions.stream().filter(region -> !region.isLocationInside(e.getTo()) && playerLastState.get(region)).forEach(region -> {
+                Bukkit.getServer().getPluginManager().callEvent(new RegionExitedEvent(e.getPlayer(), region));
+                playerLastState.put(region, false);
+            });
         }
     }
 
