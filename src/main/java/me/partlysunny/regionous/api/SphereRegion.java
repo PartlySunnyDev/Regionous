@@ -2,11 +2,12 @@ package me.partlysunny.regionous.api;
 
 import org.bukkit.Location;
 
-public abstract class SphereRegion implements XYZRegion {
+public abstract class SphereRegion extends AbstractXYZ {
 
     private final float radius;
 
-    public SphereRegion(float radius) {
+    public SphereRegion(String identifier, float radius) {
+        super(identifier);
         this.radius = radius;
     }
 

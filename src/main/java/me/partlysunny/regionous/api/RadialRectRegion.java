@@ -3,11 +3,12 @@ package me.partlysunny.regionous.api;
 import me.partlysunny.regionous.util.Vector2;
 import org.bukkit.Location;
 
-public abstract class RadialRectRegion implements XZRegion {
+public abstract class RadialRectRegion extends AbstractXZ {
 
     private final Vector2 radii;
 
-    protected RadialRectRegion(Vector2 radii) {
+    protected RadialRectRegion(String identifier, Vector2 radii) {
+        super(identifier);
         this.radii = radii;
     }
 

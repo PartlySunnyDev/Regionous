@@ -6,4 +6,6 @@ public interface Region {
 
     boolean isLocationInside(Location location);
 
+    String identifier();
+
 }

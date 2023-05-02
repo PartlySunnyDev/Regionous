@@ -8,8 +8,8 @@ public class EntityRectRegion extends RectRegion {
 
     private final Entity tracking;
 
-    public EntityRectRegion(Vector2 size, Entity tracking) {
-        super(size);
+    public EntityRectRegion(String identifier, Vector2 size, Entity tracking) {
+        super(identifier, size);
         this.tracking = tracking;
     }
 

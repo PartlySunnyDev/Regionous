@@ -7,8 +7,8 @@ public class StaticRectRegion extends RectRegion {
 
     private final Vector2 location;
 
-    public StaticRectRegion(Vector2 size, Vector2 location) {
-        super(size);
+    public StaticRectRegion(String identifier, Vector2 size, Vector2 location) {
+        super(identifier, size);
         this.location = location;
     }
 

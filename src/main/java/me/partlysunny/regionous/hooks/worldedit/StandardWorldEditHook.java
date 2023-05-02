@@ -13,13 +13,13 @@ public class StandardWorldEditHook extends WorldEditHook {
     }
 
     @Override
-    public WorldEditRegion getSelectionRegion(Player player) {
+    public WorldEditRegion getSelectionRegion(String identifier, Player player) {
         Region playerSelection;
         try {
             playerSelection = WorldEdit.getInstance().getSessionManager().get(new BukkitPlayer(player)).getSelection();
         } catch (IncompleteRegionException e) {
             throw new IllegalStateException("Player selection was incomplete!");
         }
-        return new WorldEditRegion(playerSelection);
+        return new WorldEditRegion(identifier, playerSelection);
     }
 }

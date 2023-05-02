@@ -8,8 +8,8 @@ public class EntityRadialRectRegion extends RadialRectRegion {
 
     private final Entity tracking;
 
-    protected EntityRadialRectRegion(Vector2 radii, Entity tracking) {
-        super(radii);
+    protected EntityRadialRectRegion(String identifier, Vector2 radii, Entity tracking) {
+        super(identifier, radii);
         this.tracking = tracking;
     }
 

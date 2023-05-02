@@ -2,14 +2,15 @@ package me.partlysunny.regionous.hooks.worldedit;
 
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldedit.regions.Region;
-import me.partlysunny.regionous.api.XYZRegion;
+import me.partlysunny.regionous.api.AbstractXYZ;
 import org.bukkit.Location;
 
-public class WorldEditRegion implements XYZRegion {
+public class WorldEditRegion extends AbstractXYZ {
 
     private final Region worldEditRegion;
 
-    public WorldEditRegion(Region worldEditRegion) {
+    public WorldEditRegion(String identifier, Region worldEditRegion) {
+        super(identifier);
         this.worldEditRegion = worldEditRegion;
     }
 

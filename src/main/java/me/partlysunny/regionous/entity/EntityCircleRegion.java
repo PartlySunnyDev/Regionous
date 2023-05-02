@@ -9,7 +9,7 @@ public class EntityCircleRegion extends CircleRegion {
     private final Entity tracking;
 
     public EntityCircleRegion(float radius, Entity tracking) {
-        super(radius);
+        super(, radius);
         this.tracking = tracking;
     }
 

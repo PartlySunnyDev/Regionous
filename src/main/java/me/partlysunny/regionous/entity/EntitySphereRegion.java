@@ -8,8 +8,8 @@ public class EntitySphereRegion extends SphereRegion {
 
     private final Entity tracking;
 
-    public EntitySphereRegion(float radius, Entity tracking) {
-        super(radius);
+    public EntitySphereRegion(String identifier, float radius, Entity tracking) {
+        super(identifier, radius);
         this.tracking = tracking;
     }
 

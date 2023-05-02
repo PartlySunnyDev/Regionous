@@ -11,6 +11,6 @@ public abstract class WorldEditHook {
         this.plugin = plugin;
     }
 
-    public abstract WorldEditRegion getSelectionRegion(Player player);
+    public abstract WorldEditRegion getSelectionRegion(String identifier, Player player);
 
 }

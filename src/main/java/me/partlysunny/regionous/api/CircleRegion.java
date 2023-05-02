@@ -3,11 +3,12 @@ package me.partlysunny.regionous.api;
 import me.partlysunny.regionous.util.Vector2;
 import org.bukkit.Location;
 
-public abstract class CircleRegion implements XZRegion {
+public abstract class CircleRegion extends AbstractXZ {
 
-    private final float radius;
+    protected final float radius;
 
-    public CircleRegion(float radius) {
+    public CircleRegion(String identifier, float radius) {
+        super(identifier);
         this.radius = radius;
     }
 

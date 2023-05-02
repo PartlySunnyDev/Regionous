@@ -7,8 +7,8 @@ public class StaticSphereRegion extends SphereRegion {
 
     private final Location location;
 
-    public StaticSphereRegion(float radius, Location location) {
-        super(radius);
+    public StaticSphereRegion(String identifier, float radius, Location location) {
+        super(identifier, radius);
         this.location = location;
     }
 

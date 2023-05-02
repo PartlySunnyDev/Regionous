@@ -8,7 +8,7 @@ public class NoWorldEdit extends WorldEditHook {
     }
 
     @Override
-    public WorldEditRegion getSelectionRegion(Player player) {
+    public WorldEditRegion getSelectionRegion(String identifier, Player player) {
         throw new UnsupportedOperationException("WorldEdit was not found!");
     }
 }
