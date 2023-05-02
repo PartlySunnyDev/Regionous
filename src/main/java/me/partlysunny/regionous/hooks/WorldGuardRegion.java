@@ -1,4 +1,4 @@
-package me.partlysunny.regionous.worldguard;
+package me.partlysunny.regionous.hooks;
 
 import com.sk89q.worldedit.math.BlockVector3;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;

@@ -3,7 +3,6 @@ package me.partlysunny.regionous.hooks;
 import com.sk89q.worldedit.bukkit.BukkitWorld;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.managers.RegionManager;
-import me.partlysunny.regionous.worldguard.WorldGuardRegion;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 

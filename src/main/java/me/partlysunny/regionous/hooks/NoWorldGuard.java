@@ -1,6 +1,5 @@
 package me.partlysunny.regionous.hooks;
 
-import me.partlysunny.regionous.worldguard.WorldGuardRegion;
 import org.bukkit.World;
 
 public class NoWorldGuard extends WorldGuardHook {
