@@ -24,12 +24,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class RegionLoader {
+public class RegionSaveHandler {
 
     private final JavaPlugin plugin;
     private final RegionManager regionManager;
 
-    public RegionLoader(JavaPlugin plugin, RegionManager regionManager) {
+    public RegionSaveHandler(JavaPlugin plugin, RegionManager regionManager) {
         this.plugin = plugin;
         this.regionManager = regionManager;
         loadRegions();
