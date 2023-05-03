@@ -2,8 +2,8 @@ package me.partlysunny.regionous.handler;
 
 import me.partlysunny.regionous.api.Region;
 import me.partlysunny.regionous.entity.DeathHandler;
-import me.partlysunny.regionous.handler.event.RegionEnteredEvent;
-import me.partlysunny.regionous.handler.event.RegionExitedEvent;
+import me.partlysunny.regionous.event.RegionEnteredEvent;
+import me.partlysunny.regionous.event.RegionExitedEvent;
 import me.partlysunny.regionous.save.RegionLoader;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
