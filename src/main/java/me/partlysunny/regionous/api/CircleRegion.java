@@ -5,9 +5,9 @@ import org.bukkit.Location;
 
 public abstract class CircleRegion extends AbstractXZ {
 
-    protected final float radius;
+    protected final double radius;
 
-    public CircleRegion(String identifier, float radius) {
+    public CircleRegion(String identifier, double radius) {
         super(identifier);
         this.radius = radius;
     }
@@ -15,5 +15,9 @@ public abstract class CircleRegion extends AbstractXZ {
     @Override
     public boolean isLocationInside(Location location) {
         return Vector2.fromLocationXZ(location).distanceSquared(getLocation()) <= (radius * radius);
+    }
+
+    public float getRadius() {
+        return radius;
     }
 }

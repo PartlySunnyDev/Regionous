@@ -17,6 +17,6 @@ public class StandardWorldGuardHook extends WorldGuardHook {
         if (regionManager == null) {
             return null;
         }
-        return new WorldGuardRegion(regionName, regionManager.getRegion(regionName));
+        return new WorldGuardRegion(regionName, regionManager.getRegion(regionName), world);
     }
 }

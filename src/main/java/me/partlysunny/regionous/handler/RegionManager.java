@@ -4,6 +4,7 @@ import me.partlysunny.regionous.api.Region;
 import me.partlysunny.regionous.entity.DeathHandler;
 import me.partlysunny.regionous.handler.event.RegionEnteredEvent;
 import me.partlysunny.regionous.handler.event.RegionExitedEvent;
+import me.partlysunny.regionous.save.RegionLoader;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
 
 public class RegionManager implements Listener {
 
+    private final RegionLoader regionLoader;
     private final List<Region> regions = new ArrayList<>();
     private final Map<UUID, Map<Region, Boolean>> lastKnownStates = new HashMap<>();
 
@@ -23,6 +25,7 @@ public class RegionManager implements Listener {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
         pluginManager.registerEvents(this, plugin);
         pluginManager.registerEvents(new DeathHandler(this), plugin);
+        this.regionLoader = new RegionLoader(plugin, this);
     }
 
     @EventHandler

@@ -8,7 +8,7 @@ public class EntityRadialRectRegion extends RadialRectRegion implements EntityBi
 
     private final Entity tracking;
 
-    protected EntityRadialRectRegion(String identifier, Vector2 radii, Entity tracking) {
+    public EntityRadialRectRegion(String identifier, Vector2 radii, Entity tracking) {
         super(identifier, radii);
         this.tracking = tracking;
     }

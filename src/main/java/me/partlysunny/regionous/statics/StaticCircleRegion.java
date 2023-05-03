@@ -7,7 +7,7 @@ public class StaticCircleRegion extends CircleRegion {
 
     private final Vector2 location;
 
-    public StaticCircleRegion(String identifier, float radius, Vector2 location) {
+    public StaticCircleRegion(String identifier, double radius, Vector2 location) {
         super(identifier, radius);
         this.location = location;
     }

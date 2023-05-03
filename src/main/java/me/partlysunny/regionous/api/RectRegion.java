@@ -17,4 +17,8 @@ public abstract class RectRegion extends AbstractXZ {
         return location.getX() >= getLocation().getA() && location.getX() <= getLocation().getA() + size.getA() &&
                 location.getZ() >= getLocation().getB() && location.getZ() <= getLocation().getB() + size.getB();
     }
+
+    public Vector2 getSize() {
+        return size;
+    }
 }

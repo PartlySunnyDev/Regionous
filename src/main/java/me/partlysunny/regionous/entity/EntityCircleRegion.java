@@ -8,7 +8,7 @@ public class EntityCircleRegion extends CircleRegion implements EntityBinder {
 
     private final Entity tracking;
 
-    public EntityCircleRegion(String identifier, float radius, Entity tracking) {
+    public EntityCircleRegion(String identifier, double radius, Entity tracking) {
         super(identifier, radius);
         this.tracking = tracking;
     }

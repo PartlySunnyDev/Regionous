@@ -7,7 +7,7 @@ public class StaticRadialRectRegion extends RadialRectRegion {
 
     private final Vector2 location;
 
-    protected StaticRadialRectRegion(String identifier, Vector2 radii, Vector2 location) {
+    public StaticRadialRectRegion(String identifier, Vector2 radii, Vector2 location) {
         super(identifier, radii);
         this.location = location;
     }

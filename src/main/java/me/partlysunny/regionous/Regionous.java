@@ -7,7 +7,12 @@ import me.partlysunny.regionous.hooks.worldedit.WorldEditHook;
 import me.partlysunny.regionous.hooks.worldguard.NoWorldGuard;
 import me.partlysunny.regionous.hooks.worldguard.StandardWorldGuardHook;
 import me.partlysunny.regionous.hooks.worldguard.WorldGuardHook;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Logger;
+
+import static java.util.logging.Level.INFO;
 
 public class Regionous {
 
@@ -16,16 +21,20 @@ public class Regionous {
     private final RegionManager regionManager;
     private final WorldGuardHook worldGuardHook;
     private final WorldEditHook worldEditHook;
+
     public Regionous(JavaPlugin plugin) {
         this.plugin = plugin;
         this.regionManager = new RegionManager(plugin);
+        Logger logger = plugin.getLogger();
         if (plugin.getServer().getPluginManager().getPlugin("WorldGuard") != null) {
             this.worldGuardHook = new StandardWorldGuardHook(plugin);
+            logger.log(INFO, "Regionous is hooking into WorldGuard via plugin " + plugin.getName());
         } else {
             this.worldGuardHook = new NoWorldGuard();
         }
         if (plugin.getServer().getPluginManager().getPlugin("WorldEdit") != null) {
             this.worldEditHook = new StandardWorldEditHook(plugin);
+            logger.log(INFO, "Regionous is hooking into WorldEdit via plugin " + plugin.getName());
         } else {
             this.worldEditHook = new NoWorldEdit();
         }

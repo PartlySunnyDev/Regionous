@@ -8,7 +8,7 @@ public class EntitySphereRegion extends SphereRegion implements EntityBinder {
 
     private final Entity tracking;
 
-    public EntitySphereRegion(String identifier, float radius, Entity tracking) {
+    public EntitySphereRegion(String identifier, double radius, Entity tracking) {
         super(identifier, radius);
         this.tracking = tracking;
     }

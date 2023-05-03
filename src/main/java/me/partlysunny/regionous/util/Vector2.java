@@ -4,43 +4,43 @@ import org.bukkit.Location;
 
 public class Vector2 {
 
-    private float a;
-    private float b;
+    private double a;
+    private double b;
 
-    public Vector2(float a, float b) {
+    public Vector2(double a, double b) {
         this.a = a;
         this.b = b;
     }
 
     public static Vector2 fromLocationXZ(Location location) {
-        return new Vector2((float) location.getX(), (float) location.getZ());
+        return new Vector2((double) location.getX(), (double) location.getZ());
     }
 
-    public float distanceSquared(Vector2 other) {
-        return (float) (Math.pow(other.a - a, 2) + Math.pow(other.b - b, 2));
+    public double distanceSquared(Vector2 other) {
+        return (double) (Math.pow(other.a - a, 2) + Math.pow(other.b - b, 2));
     }
 
-    public float distance(Vector2 other) {
-        return (float) Math.sqrt(distanceSquared(other));
+    public double distance(Vector2 other) {
+        return (double) Math.sqrt(distanceSquared(other));
     }
 
-    public float getA() {
+    public double getA() {
         return a;
     }
 
-    public void setA(float a) {
+    public void setA(double a) {
         this.a = a;
     }
 
-    public float getB() {
+    public double getB() {
         return b;
     }
 
-    public void setB(float b) {
+    public void setB(double b) {
         this.b = b;
     }
 
-    public void set(float a, float b) {
+    public void set(double a, double b) {
         setA(a);
         setB(b);
     }
@@ -61,12 +61,12 @@ public class Vector2 {
         return new Vector2(a / length(), b / length());
     }
 
-    public float lengthSquared() {
-        return (float) (Math.pow(a, 2) + Math.pow(b, 2));
+    public double lengthSquared() {
+        return (double) (Math.pow(a, 2) + Math.pow(b, 2));
     }
 
-    public float length() {
-        return (float) Math.sqrt(lengthSquared());
+    public double length() {
+        return (double) Math.sqrt(lengthSquared());
     }
 
 }
