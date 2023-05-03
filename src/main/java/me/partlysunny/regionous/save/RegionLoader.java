@@ -45,6 +45,7 @@ public class RegionLoader {
             return;
         }
         for (File regionFile : regionFiles) {
+            if (!regionFile.getName().split("\\.")[1].equals("region")) continue;
             try {
                 InputStream inputStream = new FileInputStream(regionFile);
                 Region region = loadRegion(inputStream);
