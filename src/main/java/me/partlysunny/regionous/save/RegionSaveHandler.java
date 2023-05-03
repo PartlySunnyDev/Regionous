@@ -70,6 +70,7 @@ public class RegionSaveHandler {
         }
         regionFolder.mkdir();
         for (Region region : regionManager.stream().toList()) {
+            if (!region.toSave()) continue;
             try {
                 File regionFile = new File(regionFolder, region.identifier() + ".region");
                 if (!regionFile.exists()) {
