@@ -64,5 +64,7 @@ public class RegionManager implements Listener {
         return regions.stream();
     }
 
-
+    public RegionLoader getRegionLoader() {
+        return regionLoader;
+    }
 }
