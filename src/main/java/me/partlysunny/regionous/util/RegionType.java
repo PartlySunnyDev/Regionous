@@ -32,10 +32,6 @@ public enum RegionType {
         this.clazz = clazz;
     }
 
-    public Class<? extends Region> getClazz() {
-        return clazz;
-    }
-
     public static RegionType typeof(Region region) {
         for (RegionType type : values()) {
             if (type.getClazz().isInstance(region)) {
@@ -43,6 +39,10 @@ public enum RegionType {
             }
         }
         return RegionType.UNKNOWN;
+    }
+
+    public Class<? extends Region> getClazz() {
+        return clazz;
     }
 
     public boolean isEntity() {

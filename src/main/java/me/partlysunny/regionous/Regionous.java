@@ -7,7 +7,6 @@ import me.partlysunny.regionous.hooks.worldedit.WorldEditHook;
 import me.partlysunny.regionous.hooks.worldguard.NoWorldGuard;
 import me.partlysunny.regionous.hooks.worldguard.StandardWorldGuardHook;
 import me.partlysunny.regionous.hooks.worldguard.WorldGuardHook;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
