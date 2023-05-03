@@ -4,6 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.Iterator;
+import java.util.List;
 
 public class NoWorldEdit extends WorldEditHook {
     public NoWorldEdit() {
@@ -16,7 +17,7 @@ public class NoWorldEdit extends WorldEditHook {
     }
 
     @Override
-    public WorldEditRegion getFromLocationList(String identifier, Iterator<Location> locations) {
+    public WorldEditRegion getFromLocationList(String identifier, List<Location> locations) {
         throw new UnsupportedOperationException("WorldEdit was not found!");
     }
 }

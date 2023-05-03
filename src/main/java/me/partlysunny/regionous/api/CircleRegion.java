@@ -17,7 +17,7 @@ public abstract class CircleRegion extends AbstractXZ {
         return Vector2.fromLocationXZ(location).distanceSquared(getLocation()) <= (radius * radius);
     }
 
-    public float getRadius() {
+    public double getRadius() {
         return radius;
     }
 }
