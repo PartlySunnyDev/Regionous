@@ -50,6 +50,7 @@ public class RegionSaveHandler {
                 InputStream inputStream = new FileInputStream(regionFile);
                 Region region = loadRegion(inputStream);
                 regionManager.register(region);
+                inputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -57,7 +58,10 @@ public class RegionSaveHandler {
     }
 
     public void saveRegions() {
-        File regionFolder = new File(plugin.getDataFolder(), "regions");
+        if (!plugin.getDataFolder().exists()) {
+            plugin.getDataFolder().mkdir();
+        }
+        File regionFolder = new File(plugin.getDataFolder().getAbsolutePath() + File.separator + "regions");
         if (regionFolder.exists()) {
             for (File file : regionFolder.listFiles()) {
                 file.delete();
@@ -73,6 +77,8 @@ public class RegionSaveHandler {
                 }
                 OutputStream outputStream = new FileOutputStream(regionFile);
                 saveRegion(region, outputStream);
+                outputStream.flush();
+                outputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
