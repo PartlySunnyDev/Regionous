@@ -14,7 +14,6 @@ import me.partlysunny.regionous.statics.StaticSphereRegion;
 
 public enum RegionType {
 
-    UNKNOWN(null),
     ENTITY_CIRCLE(EntityCircleRegion.class),
     STATIC_CIRCLE(StaticCircleRegion.class),
     ENTITY_RECTANGLE(EntityRectRegion.class),
@@ -38,7 +37,7 @@ public enum RegionType {
                 return type;
             }
         }
-        return RegionType.UNKNOWN;
+        return null;
     }
 
     public Class<? extends Region> getClazz() {
