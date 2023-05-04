@@ -1,7 +1,7 @@
 package me.partlysunny.regionous.entity;
 
 import me.partlysunny.regionous.api.CircleRegion;
-import me.partlysunny.regionous.util.Vector2;
+import me.partlysunny.regionous.util.Loc2D;
 import org.bukkit.entity.Entity;
 
 public class EntityCircleRegion extends CircleRegion implements EntityBinder {
@@ -14,8 +14,8 @@ public class EntityCircleRegion extends CircleRegion implements EntityBinder {
     }
 
     @Override
-    public Vector2 getLocation() {
-        return Vector2.fromLocationXZ(tracking.getLocation());
+    public Loc2D getLocation() {
+        return Loc2D.fromLocationXZ(tracking.getLocation());
     }
 
     @Override

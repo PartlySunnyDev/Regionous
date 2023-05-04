@@ -1,24 +1,24 @@
 package me.partlysunny.regionous.api;
 
-import me.partlysunny.regionous.util.Vector2;
+import me.partlysunny.regionous.util.Loc2D;
 import org.bukkit.Location;
 
 public abstract class RectRegion extends AbstractXZ {
 
-    private final Vector2 size;
+    private final Loc2D size;
 
-    public RectRegion(String identifier, Vector2 size) {
+    public RectRegion(String identifier, Loc2D size) {
         super(identifier);
         this.size = size;
     }
 
     @Override
     public boolean isLocationInside(Location location) {
-        return location.getX() >= getLocation().getA() && location.getX() <= getLocation().getA() + size.getA() &&
-                location.getZ() >= getLocation().getB() && location.getZ() <= getLocation().getB() + size.getB();
+        return location.getX() >= getLocation().getX() && location.getX() <= getLocation().getX() + size.getX() &&
+                location.getZ() >= getLocation().getZ() && location.getZ() <= getLocation().getZ() + size.getZ();
     }
 
-    public Vector2 getSize() {
+    public Loc2D getSize() {
         return size;
     }
 }

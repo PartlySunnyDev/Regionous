@@ -11,7 +11,7 @@ import me.partlysunny.regionous.statics.StaticRadialRectRegion;
 import me.partlysunny.regionous.statics.StaticRectRegion;
 import me.partlysunny.regionous.statics.StaticSphereRegion;
 import me.partlysunny.regionous.util.RegionType;
-import me.partlysunny.regionous.util.Vector2;
+import me.partlysunny.regionous.util.Loc2D;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -108,9 +108,9 @@ public class RegionSaveHandler {
                 outputStream.write(ByteBuffer.allocate(8).putDouble(location.getZ()).array());
                 outputStream.write(ByteBuffer.allocate(8).putDouble(location.getY()).array());
             } else {
-                Vector2 location = ((XZRegion) region).getLocation();
-                outputStream.write(ByteBuffer.allocate(8).putDouble(location.getA()).array());
-                outputStream.write(ByteBuffer.allocate(8).putDouble(location.getB()).array());
+                Loc2D location = ((XZRegion) region).getLocation();
+                outputStream.write(ByteBuffer.allocate(8).putDouble(location.getX()).array());
+                outputStream.write(ByteBuffer.allocate(8).putDouble(location.getZ()).array());
             }
         }
         //Then write the region
@@ -118,8 +118,8 @@ public class RegionSaveHandler {
             case STATIC_RECTANGLE, ENTITY_RECTANGLE -> {
                 RectRegion rectRegion = (RectRegion) region;
                 //Write the width, height
-                outputStream.write(ByteBuffer.allocate(8).putDouble(rectRegion.getSize().getA()).array());
-                outputStream.write(ByteBuffer.allocate(8).putDouble(rectRegion.getSize().getB()).array());
+                outputStream.write(ByteBuffer.allocate(8).putDouble(rectRegion.getSize().getX()).array());
+                outputStream.write(ByteBuffer.allocate(8).putDouble(rectRegion.getSize().getZ()).array());
             }
             case STATIC_CIRCLE, ENTITY_CIRCLE -> {
                 CircleRegion circleRegion = (CircleRegion) region;
@@ -129,8 +129,8 @@ public class RegionSaveHandler {
             case STATIC_RADIAL_RECT, ENTITY_RADIAL_RECT -> {
                 RadialRectRegion radialRectRegion = (RadialRectRegion) region;
                 //Write the radii
-                outputStream.write(ByteBuffer.allocate(8).putDouble(radialRectRegion.getRadii().getA()).array());
-                outputStream.write(ByteBuffer.allocate(8).putDouble(radialRectRegion.getRadii().getB()).array());
+                outputStream.write(ByteBuffer.allocate(8).putDouble(radialRectRegion.getRadii().getX()).array());
+                outputStream.write(ByteBuffer.allocate(8).putDouble(radialRectRegion.getRadii().getZ()).array());
             }
             case STATIC_SPHERE, ENTITY_SPHERE -> {
                 SphereRegion sphereRegion = (SphereRegion) region;
@@ -203,7 +203,7 @@ public class RegionSaveHandler {
                 case ENTITY_RECTANGLE -> {
                     double width = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
                     double height = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
-                    return new EntityRectRegion(identifier, new Vector2(width, height), entity);
+                    return new EntityRectRegion(identifier, new Loc2D(width, height), entity);
                 }
                 case ENTITY_CIRCLE -> {
                     double radius = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
@@ -212,7 +212,7 @@ public class RegionSaveHandler {
                 case ENTITY_RADIAL_RECT -> {
                     double radiusX = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
                     double radiusY = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
-                    return new EntityRadialRectRegion(identifier, new Vector2(radiusX, radiusY), entity);
+                    return new EntityRadialRectRegion(identifier, new Loc2D(radiusX, radiusY), entity);
                 }
                 case ENTITY_SPHERE -> {
                     double radius = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
@@ -249,16 +249,16 @@ public class RegionSaveHandler {
                 case STATIC_RECTANGLE -> {
                     double width = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
                     double height = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
-                    return new StaticRectRegion(identifier, new Vector2(x, z), new Vector2(width, height));
+                    return new StaticRectRegion(identifier, new Loc2D(x, z), new Loc2D(width, height));
                 }
                 case STATIC_CIRCLE -> {
                     double radius = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
-                    return new StaticCircleRegion(identifier, radius, new Vector2(x, y));
+                    return new StaticCircleRegion(identifier, radius, new Loc2D(x, y));
                 }
                 case STATIC_RADIAL_RECT -> {
                     double radiusX = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
                     double radiusY = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();
-                    return new StaticRadialRectRegion(identifier, new Vector2(x, y), new Vector2(radiusX, radiusY));
+                    return new StaticRadialRectRegion(identifier, new Loc2D(x, y), new Loc2D(radiusX, radiusY));
                 }
                 case STATIC_SPHERE -> {
                     double radius = ByteBuffer.wrap(stream.readNBytes(8)).getDouble();

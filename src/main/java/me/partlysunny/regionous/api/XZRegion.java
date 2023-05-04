@@ -1,9 +1,9 @@
 package me.partlysunny.regionous.api;
 
-import me.partlysunny.regionous.util.Vector2;
+import me.partlysunny.regionous.util.Loc2D;
 
 public interface XZRegion extends Region {
 
-    Vector2 getLocation();
+    Loc2D getLocation();
 
 }
